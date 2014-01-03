@@ -29,15 +29,17 @@ public class SignOnPage extends Page {
 
 // Method: Sign On page allows user to type their username into the User Name field
     public SignOnPage typeUsername(String username) {
-//        driver.switchTo().frame(userLogin);
+
 //        userLogin.sendKeys(username);
         driver.findElement(By.name("userName")).sendKeys(username);
-//        driver.switchTo().defaultContent();
+
         return this;
     }
 
 // Method: Sign On page allows user to type their password into the Password field
     public SignOnPage typePassword(String password) {
+
+//        userPassword.sendKeys(password);
         driver.findElement(By.name("password")).sendKeys(password);
 
         return this;
@@ -45,6 +47,8 @@ public class SignOnPage extends Page {
 
 // Method: Sign On page allows user to submit the Sign On form
     public HomePage submitSignOn() {
+
+//        signInButton.submit();
         driver.findElement(By.name("login")).submit();
 
         return new HomePage(driver);
@@ -59,6 +63,8 @@ public class SignOnPage extends Page {
 
 // Method: Sign On page allows user to attempt login using an incorrect username & password
     public SignOnPage submitSignOnExpectingFailure() {
+
+//        signInButton.submit();
         driver.findElement(By.name("login")).submit();
         return new SignOnPage(driver);
     }
