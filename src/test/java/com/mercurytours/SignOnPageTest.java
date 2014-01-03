@@ -11,15 +11,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SignOnPageTest {
 
-    MercuryAccount mercury_account = new MercuryAccount();
+    private MercuryAccount mercury_account = new MercuryAccount();
+    private WebDriver driver = new FirefoxDriver();
 
     @Test
     public void SignOnToMercuryTours() {
-        WebDriver driver = new FirefoxDriver();
+
         SignOnPage signOn = new SignOnPage(driver);
 
-//        driver.get(mercury_account.mercury_url +"/mercurysignon.php");
         signOn.SignOnAs(mercury_account.userName, mercury_account.password);
         driver.quit();
     }
+
 }
