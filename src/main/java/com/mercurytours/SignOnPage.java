@@ -4,7 +4,6 @@ import com.mercurytours.utilities.FieldChecks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 /**
  * This is the page object class for the Sign On page
@@ -17,19 +16,28 @@ public class SignOnPage extends Page {
 */
 
 // Define form elements on the page
-//    @FindBy(name = "userName")
-//    private WebElement userLogin;
+
+/*  Use these with Page Factory Pattern
+    @FindBy(name = "userName")
+    private WebElement userLogin;
 
     @FindBy(name = "password")
     private WebElement userPassword;
 
     @FindBy(name = "login")
     private WebElement signInButton;
-
-    private WebElement userLogin = driver.findElement(By.name("userName"));
+*/
+//    private WebElement userLogin = driver.findElement(By.name("userName"));
 //    private WebElement userPassword = driver.findElement(By.name("password"));
 //    private WebElement signInButton = driver.findElement(By.name("login"));
 
+//    private WebElement userLogin = driver.findElement(By.xpath("//input[@name='userName']"));
+//    private WebElement userPassword = driver.findElement(By.xpath("//input[@name='password']"));
+//    private WebElement signInButton = driver.findElement(By.xpath("//input[@name='login']"));
+
+    private WebElement userLogin = driver.findElement(By.cssSelector("input[name=userName]"));
+    private WebElement userPassword = driver.findElement(By.cssSelector("input[name=password]"));
+    private WebElement signInButton = driver.findElement(By.cssSelector("input[name=login]"));
 
 // Constructor: uses super class to instantiate driver
 // Loads Sign On page if not on the correct page
@@ -51,13 +59,13 @@ public class SignOnPage extends Page {
    *******          to the utilities package
    *******          in order to use with all 3 form elements
 */
-/*        try {
-            FieldChecks.dependableClick(driver, By.name("userName"));
+        try {
+            FieldChecks.escapeStaleState(driver, By.cssSelector("input[name=userName]"));
             userLogin.sendKeys(username);
         } catch (Exception see) {
             System.out.println(see);
         }
-*/
+/*
 
         if(!FieldChecks.isElementPresent(driver, By.name("userName"))){
 //            System.out.println("Username is NOT present");
@@ -77,13 +85,14 @@ public class SignOnPage extends Page {
                 if (numElements != 1) {
                     System.out.println("***** Error: too many username references *****");
                 } else {
-                    userLogin = driver.findElement(By.name("userName"));
+//                    userLogin = driver.findElement(By.name("userName"));
+                    userLogin = driver.findElement(By.cssSelector("input[name=userName]"));
                     userLogin.sendKeys(username);
                     System.out.println(">>> SUCCESSFUL ENTRY : userName");
                 }
             }
         }
-
+*/
         return this;
     }
 
@@ -109,7 +118,8 @@ public class SignOnPage extends Page {
                 if (numElements != 1) {
                     System.out.println("***** Error: too many password references *****");
                 } else {
-                    userPassword = driver.findElement(By.name("password"));
+//                    userPassword = driver.findElement(By.name("password"));
+                    userPassword = driver.findElement(By.cssSelector("input[name=password]"));
                     userPassword.sendKeys(password);
                     System.out.println(">>> SUCCESSFUL ENTRY : password");
                 }
@@ -140,7 +150,8 @@ public class SignOnPage extends Page {
                 if (numElements != 1) {
                     System.out.println("***** Error: too many login button references *****");
                 } else {
-                    signInButton = driver.findElement(By.name("login"));
+//                    signInButton = driver.findElement(By.name("login"));
+                    signInButton = driver.findElement(By.cssSelector("input[name=login]"));
                     signInButton.submit();
                     System.out.println(">>> SUCCESSFUL ENTRY : login button");
                 }
