@@ -12,6 +12,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class SignOnPage extends Page {
 
+/* ****** TO DO
+   ******       Find out which approach for defining Page Object elements is "better"
+*/
+
 // Define form elements on the page
     @FindBy(name = "userName")
     private WebElement userLogin;
