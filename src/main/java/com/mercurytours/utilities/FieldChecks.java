@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.thoughtworks.selenium.SeleneseTestBase.fail;
+
 public class FieldChecks {
 
     public static boolean isElementPresent(WebDriver driver, By by) {
@@ -16,6 +18,19 @@ public class FieldChecks {
         } catch (NoSuchElementException ignored) {
             return false;
         }
+    }
+
+    public static void escapeStaleState(WebDriver driver, By by) throws InterruptedException {
+        for (int second = 0;; second++) {
+            if (second >= 60) fail("timeout");
+            try {
+                if (isElementPresent(driver, by));
+                    break;
+            } catch (Exception e) {}
+
+            Thread.sleep(1000);
+        }
+
     }
 
 
