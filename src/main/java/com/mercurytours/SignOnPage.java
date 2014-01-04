@@ -22,7 +22,6 @@ public class SignOnPage extends Page {
     @FindBy(name = "login")
     private WebElement signInButton;
 
-
 //    private WebElement userLogin = driver.findElement(By.name("userName"));
 //    private WebElement userPassword = driver.findElement(By.name("password"));
 //    private WebElement signInButton = driver.findElement(By.name("login"));
@@ -42,6 +41,12 @@ public class SignOnPage extends Page {
 // Method: Sign On page allows user to type their username into the User Name field
     public SignOnPage typeUsername(String username) {
 //        System.out.println("type the Username");
+
+/* ******* REFACTOR
+   *******          the "stale check testing"
+   *******          to the utilities package
+   *******          in order to use with all 3 form elements
+*/
 
         if(!FieldChecks.isElementPresent(driver, By.name("userName"))){
 //            System.out.println("Username is NOT present");
@@ -141,6 +146,12 @@ public class SignOnPage extends Page {
         typePassword(password);
         return submitSignOn();
     }
+
+/* ******* REFACTOR
+   *******          the signInButton.submit() to include
+   *******          the "stale check testing"
+   *******          from the utilities package
+*/
 
 // Method: Sign On page allows user to attempt login using an incorrect username & password
     public SignOnPage submitSignOnExpectingFailure() {
