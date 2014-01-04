@@ -17,8 +17,8 @@ public class SignOnPage extends Page {
 */
 
 // Define form elements on the page
-    @FindBy(name = "userName")
-    private WebElement userLogin;
+//    @FindBy(name = "userName")
+//    private WebElement userLogin;
 
     @FindBy(name = "password")
     private WebElement userPassword;
@@ -26,7 +26,7 @@ public class SignOnPage extends Page {
     @FindBy(name = "login")
     private WebElement signInButton;
 
-//    private WebElement userLogin = driver.findElement(By.name("userName"));
+    private WebElement userLogin = driver.findElement(By.name("userName"));
 //    private WebElement userPassword = driver.findElement(By.name("password"));
 //    private WebElement signInButton = driver.findElement(By.name("login"));
 
@@ -50,6 +50,13 @@ public class SignOnPage extends Page {
    *******          the "stale check testing"
    *******          to the utilities package
    *******          in order to use with all 3 form elements
+*/
+/*        try {
+            FieldChecks.dependableClick(driver, By.name("userName"));
+            userLogin.sendKeys(username);
+        } catch (Exception see) {
+            System.out.println(see);
+        }
 */
 
         if(!FieldChecks.isElementPresent(driver, By.name("userName"))){
