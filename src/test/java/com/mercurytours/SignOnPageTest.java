@@ -13,12 +13,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SignOnPageTest {
 
-    MercuryAccount mercury_account;
+    MercuryAccount mercury_account = new MercuryAccount();
     WebDriver driver;
 
     @Before
     public void setUp() {
-        mercury_account = new MercuryAccount();
         driver = new FirefoxDriver();
     }
 
