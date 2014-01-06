@@ -7,6 +7,9 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import static com.thoughtworks.selenium.SeleneseTestBase.assertEquals;
+
+
 /**
  * This class tests the Sign On page
  */
@@ -30,6 +33,24 @@ public class SignOnPageTest {
     public void SignOnToMercuryTours() {
         SignOnPage signOn = new SignOnPage(driver);
         signOn.SignOnAs(mercury_account.userName, mercury_account.password);
-     }
+
+        String title = driver.getTitle();
+        System.out.println(title);
+
+        assertEquals("Welcome: Mercury Tours", driver.getTitle());
+    }
+
+    @Test
+    public void FailedSignOnToMercuryTours() {
+        SignOnPage signOn = new SignOnPage(driver);
+        signOn.typeUsername("user");
+        signOn.typePassword("password");
+        signOn.submitSignOnExpectingFailure();
+
+        String title = driver.getTitle();
+        System.out.println(title);
+
+        assertEquals("Sign-on: Mercury Tours", driver.getTitle());
+    }
 
 }
