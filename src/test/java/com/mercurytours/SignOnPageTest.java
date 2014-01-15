@@ -35,7 +35,6 @@ public class SignOnPageTest {
         String title = driver.getTitle();
         System.out.println(title);
 
-//        assertEquals("Welcome: Mercury Tours", driver.getTitle());
         Assert.assertEquals("Welcome: Mercury Tours", driver.getTitle());
     }
 
