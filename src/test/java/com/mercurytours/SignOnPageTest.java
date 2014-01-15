@@ -2,13 +2,11 @@ package com.mercurytours;
 
 import com.mercurytours.domain.MercuryAccount;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import static com.thoughtworks.selenium.SeleneseTestBase.assertEquals;
-
 
 /**
  * This class tests the Sign On page
@@ -37,7 +35,8 @@ public class SignOnPageTest {
         String title = driver.getTitle();
         System.out.println(title);
 
-        assertEquals("Welcome: Mercury Tours", driver.getTitle());
+//        assertEquals("Welcome: Mercury Tours", driver.getTitle());
+        Assert.assertEquals("Welcome: Mercury Tours", driver.getTitle());
     }
 
     @Test
@@ -50,7 +49,7 @@ public class SignOnPageTest {
         String title = driver.getTitle();
         System.out.println(title);
 
-        assertEquals("Sign-on: Mercury Tours", driver.getTitle());
+        Assert.assertEquals("Sign-on: Mercury Tours", driver.getTitle());
     }
 
 }
