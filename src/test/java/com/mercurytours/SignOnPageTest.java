@@ -2,11 +2,16 @@ package com.mercurytours;
 
 import com.mercurytours.domain.MercuryAccount;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 /**
  * This class tests the Sign On page
@@ -32,10 +37,9 @@ public class SignOnPageTest {
         SignOnPage signOn = new SignOnPage(driver);
         signOn.SignOnAs(mercury_account.userName, mercury_account.password);
 
-        String title = driver.getTitle();
-        System.out.println(title);
+        String pageTitle = driver.getTitle();
 
-        Assert.assertEquals("Welcome: Mercury Tours", driver.getTitle());
+        assertThat(pageTitle, is("Welcome: Mercury Tours"));
     }
 
     @Test
@@ -45,10 +49,10 @@ public class SignOnPageTest {
         signOn.typePassword("password");
         signOn.submitSignOnExpectingFailure();
 
-        String title = driver.getTitle();
-        System.out.println(title);
+        String pageTitle = driver.getTitle();
 
-        Assert.assertEquals("Sign-on: Mercury Tours", driver.getTitle());
+        assertEquals(pageTitle, "Sign-on: Mercury Tours");
+        assertThat(pageTitle, is(not("Welcome: Mercury Tours")));
     }
 
 }
