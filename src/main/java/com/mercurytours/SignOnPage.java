@@ -7,15 +7,15 @@ import org.openqa.selenium.WebDriver;
  * This is the page object class for the Sign On page
  */
 
-public class SignOnPage extends Page {
+public class SignOnPage extends BasePageObject {
 
 /* ****** TO DO
-   ******       Find out which approach for defining Page Object elements is "better"
+   ******       Find out which approach for defining SignOnPage elements is "better"
 */
 
 // Define form elements on the page
 
-/*  Use these with Page Factory Pattern
+/*  Use these with Page Object Factory Pattern
     @FindBy(name = "userName")
     private WebElement userLogin;
 

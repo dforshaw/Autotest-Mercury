@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 // In Progress: goal is to create a page object for sidebar and navigation links
-public class CommonLinks extends Page {
+public class CommonLinks extends BasePageObject {
 
     String underConsTitle = "Under Construction: Mercury Tours";
 

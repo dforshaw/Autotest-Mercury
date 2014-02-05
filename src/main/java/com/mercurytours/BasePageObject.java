@@ -7,12 +7,12 @@ import org.openqa.selenium.WebDriver;
  * This is the base page object
  */
 
-public class Page {
+public class BasePageObject {
     protected final WebDriver driver;
     MercuryAccount mercury_account = new MercuryAccount();
     String BaseUrl = mercury_account.mercury_url;
 
-    public Page(WebDriver driver) {
+    public BasePageObject(WebDriver driver) {
         this.driver = driver;
         driver.get(BaseUrl);
     }
