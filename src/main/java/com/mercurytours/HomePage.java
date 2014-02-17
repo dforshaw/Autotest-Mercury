@@ -1,6 +1,6 @@
 package com.mercurytours;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 /**
  * This is the page object class for the Home page

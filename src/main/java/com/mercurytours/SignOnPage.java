@@ -1,7 +1,6 @@
 package com.mercurytours;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 /**
  * This is the page object class for the Sign On page
