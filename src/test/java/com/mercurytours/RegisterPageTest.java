@@ -3,6 +3,7 @@ package com.mercurytours;
 import com.mercurytours.domain.MercuryAccount;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -41,5 +42,16 @@ public class RegisterPageTest {
 
         registration.typeContactInformation("Joe", "Smith", "510-555-1212", "joe.smith@yahoo.com");
 
+    }
+
+    @Test
+    public void VerifyLayoutOfRegistrationPage() {
+        RegisterPage registration = new RegisterPage(driver);
+
+        WebElement firstName = driver.findElement(registration.userFirstNameLocator);
+        System.out.println(firstName.getSize());
+        System.out.println(firstName.getTagName());
+        System.out.println(firstName.getLocation());
+        System.out.println(firstName.isDisplayed());
     }
 }
