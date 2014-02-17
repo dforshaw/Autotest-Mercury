@@ -41,7 +41,7 @@ public class RegisterPageTest {
     public void EnterRegistrationInfo() {
         RegisterPage registration = new RegisterPage(driver);
 
-        registration.typeContactInformation("David", "Forshaw", "650-714-3462", "david_forshaw@yahoo.com");
+        registration.typeContactInformation("Joe", "Smith", "510-555-1212", "joe.smith@yahoo.com");
 
     }
 }
