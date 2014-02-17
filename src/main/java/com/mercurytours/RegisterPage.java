@@ -3,7 +3,7 @@ package com.mercurytours;
 import org.openqa.selenium.*;
 
 /**
- * This is the page object class for the Register page
+ * This is the page object class for the Registration page
  */
 
 public class RegisterPage extends BasePageObject {
@@ -23,6 +23,19 @@ public class RegisterPage extends BasePageObject {
     }
 
 // Register page allows user to enter their Contact Information
+
+    // Method: Enter user's Contact Information
+    public RegisterPage typeContactInformation(String userFirstName,
+                                               String userLastName,
+                                               String userPhone,
+                                               String username) {
+
+        typeUserFirstName(userFirstName);
+        typeUserLastName(userLastName);
+        typeUserPhone(userPhone);
+        typeUsername(username);
+        return this;
+    }
 
     // Method: Enter user's first name into the First Name field
     private RegisterPage typeUserFirstName(String userFirstName) {
@@ -53,19 +66,6 @@ public class RegisterPage extends BasePageObject {
 
         driver.findElement(userLoginLocator).clear();
         driver.findElement(userLoginLocator).sendKeys(username);
-        return this;
-    }
-
-    // Method: Enter user's Contact Information
-    public RegisterPage typeContactInformation(String userFirstName,
-                                               String userLastName,
-                                               String userPhone,
-                                               String username) {
-
-        typeUserFirstName(userFirstName);
-        typeUserLastName(userLastName);
-        typeUserPhone(userPhone);
-        typeUsername(username);
         return this;
     }
 }
