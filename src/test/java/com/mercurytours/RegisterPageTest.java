@@ -1,9 +1,7 @@
 package com.mercurytours;
 
 import com.mercurytours.domain.MercuryAccount;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -11,7 +9,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
- * This class tests the Sign On page
+ * This class tests the Registration page
  */
 
 public class RegisterPageTest {
